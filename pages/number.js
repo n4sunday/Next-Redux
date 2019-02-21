@@ -1,8 +1,13 @@
 import React from 'react'
+import Link from 'next/link'
+import Router from 'next/router'
 import {connect} from 'react-redux' 
 import { log } from 'util'
 import { increaseNumber,
-        decreaseNumber
+        decreaseNumber,
+        mulcreaseNumber,
+        editSunday,
+        addName
 }from '../redux/actions'
 
 class Number extends React.Component {
@@ -28,28 +33,47 @@ class Number extends React.Component {
     //     number = number * 2  
     //     this.setState({ number })
     // }
+    constructor() {
+        super()
+        this.state = {
+            user:'5935512004'
+        }
+    }
+
 
     render() {
-        const { number,increaseNumber,decreaseNumber } = this.props
+        const { number,increaseNumber,decreaseNumber,mulcreaseNumber,editSunday,addName } = this.props
         return(
             <div>
                 <h1>{number}</h1>
                 <button onClick={increaseNumber}> + </button>
                 <button onClick={decreaseNumber}> - </button>
+                <button onClick={mulcreaseNumber}> x </button>
+                <button onClick={editSunday}> Change </button>
+                <button onClick={addName}> Add Name </button>
+                <Link href="/"> 
+                <button>Back</button> 
+                </Link>{' '}
+                
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
+    console.log('state:'+state);
     return {
-        number: state.number
+        number: state.number,
+        sunday: state.sunday,
+        user: state.user
     }
 }
 const ActionsToProps = {
     increaseNumber,
-    decreaseNumber
+    decreaseNumber,
+    mulcreaseNumber,
+    editSunday,
+    addName
 }
 
 export default connect(mapStateToProps,ActionsToProps)(Number)

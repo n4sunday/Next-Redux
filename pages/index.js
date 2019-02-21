@@ -2,11 +2,12 @@ import React from 'react'
 import Link from 'next/link'
 import Router from 'next/router'
 import {connect} from 'react-redux' 
+import Box from '../components/box'
 
 class Index extends React.Component {
-    componentDidMount() {
+    /*componentDidMount() {
         this.deleyAboutpages();
-    }
+    }*/
 
     deleyAboutpages =()=> {
         setTimeout( ()=> {
@@ -21,18 +22,19 @@ class Index extends React.Component {
     render(){
         return (
             <div>
-                Hello World
+                Hello World<br></br>
                 <Link href="/about"> 
-                <a>here</a> 
+                <li>About</li> 
                 </Link>{' '}
-                <button onClick={this.handleGoToAboutPages}>Number</button>
-                {this.props.number}
+                <button onClick={this.handleGoToAboutPages}>Redux</button><br></br>
+                Redux Number : {this.props.number}
+                <Box/>
             </div>
         );
     }
 }
-const mapStateToProps = ({number}) => {
-    return { number    }
+const mapStateToProps = ({number,sunday}) => {
+    return { number,sunday }
 }
 
 export default connect(mapStateToProps)(Index)

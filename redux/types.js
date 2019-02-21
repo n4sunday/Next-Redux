@@ -1,2 +1,5 @@
 export const INCREASE_NUMBER = 'INCREASE_NUMBER';
 export const DECREASE_NUMBER = 'DECREASE_NUMBER';
+export const MULCREASE_NUMBER = 'MULCREASE_NUMBER';
+export const EDIT_SUNDAY = 'EDIT_SUNDAY';
+export const ADD_NAME = 'ADD_NAME';
