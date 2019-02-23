@@ -35,9 +35,10 @@ export const editSunday = () => (dispatch) => {
         value: 1
     })
 }
-export const addName = () => (dispatch) => {
-    const name = 'X '
-    console.log('name'+name)
+export const addName = (x) => (dispatch) => {
+    const name = x
+    console.log('foo:'+x )
+    console.log('name:'+name)
     dispatch({
         type: ADD_NAME,
         name

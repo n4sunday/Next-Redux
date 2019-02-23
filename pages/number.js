@@ -50,7 +50,7 @@ class Number extends React.Component {
                 <button onClick={decreaseNumber}> - </button>
                 <button onClick={mulcreaseNumber}> x </button>
                 <button onClick={editSunday}> Change </button>
-                <button onClick={addName}> Add Name </button>
+                <button onClick={ () => addName(''+this.state.user)   }> Add Name </button>
                 <Link href="/"> 
                 <button>Back</button> 
                 </Link>{' '}
@@ -61,7 +61,6 @@ class Number extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('state:'+state);
     return {
         number: state.number,
         sunday: state.sunday,
